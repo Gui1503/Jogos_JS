@@ -1,0 +1,39 @@
+Jogo Dado
+
+regras de negócio:
+1-se for 1 passa para o proximo jogador
+2-se maior que 1 vai para o primeiro jogador
+3-quando aparecer 1 zera do jogador e passa para o próximo
+4-hold pega a pontuação e passa a vez para o próximo jogador
+5-jogador ganha com o valor de 100 pontos.
+
+
+explicação do jogo feito pelo chat gpt
+Claro, vou explicar o código JavaScript passo a passo:
+
+1. O código começa declarando algumas variáveis globais que serão usadas para rastrear informações sobre o jogo:
+   - `scores`: Um array que armazena as pontuações dos dois jogadores.
+   - `currentScore`: Armazena a pontuação do jogador ativo durante sua vez.
+   - `activePlayer`: Indica qual jogador está atualmente ativo (0 para o jogador 1, 1 para o jogador 2).
+   - `playing`: Uma variável booleana que indica se o jogo está em andamento ou não.
+
+2. A função `init()` é definida para inicializar o jogo quando ele começa. Ela configura todas as variáveis, exibe as pontuações iniciais e define o jogador ativo como "Player 1". Também remove quaisquer classes de vencedor e define a classe "player--active" para o jogador 1.
+
+3. A função `switchPlayer()` é definida para alternar entre os jogadores quando necessário. Ela redefine a pontuação atual do jogador ativo, troca o jogador ativo e atualiza as classes de estilo para indicar qual jogador está ativo.
+
+4. O jogo é inicializado chamando `init()`.
+
+5. Evento de clique no botão "Roll Dice":
+   - Quando o botão é clicado, o código gera um número aleatório entre 1 e 6 para simular o lançamento de um dado.
+   - Ele atualiza a imagem do dado no elemento HTML com a classe "dice" para mostrar o resultado.
+   - Verifica se o número gerado é diferente de 1. Se sim, adiciona o valor à pontuação atual do jogador ativo e atualiza a exibição da pontuação atual. Caso contrário, passa a vez para o próximo jogador chamando `switchPlayer()`.
+
+6. Evento de clique no botão "Hold":
+   - Quando o botão é clicado, a pontuação atual do jogador ativo é adicionada à sua pontuação total (scores[activePlayer]).
+   - Verifica se o jogador ativo alcançou uma pontuação igual ou superior a 100 para ganhar o jogo. Se isso acontecer, exibe "Winner!" para o jogador, adiciona uma classe de vencedor e remove a classe de jogador ativo. Além disso, oculta a imagem do dado.
+   - Caso contrário, passa a vez para o próximo jogador chamando `switchPlayer()`.
+
+7. Evento de clique no botão "New Game":
+   - Quando o botão é clicado, ele chama a função `init()` para reiniciar o jogo, restaurando todas as configurações iniciais.
+
+Em resumo, este código JavaScript implementa a lógica para um jogo simples de lançamento de dado com dois jogadores, onde o objetivo é alcançar 100 pontos primeiro. Ele utiliza funções para gerenciar a inicialização, a alternância entre jogadores, o lançamento do dado e o controle do fluxo do jogo.
